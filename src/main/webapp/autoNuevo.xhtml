@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <ui:param name="título" value="Auto Nuevo"/>
+    <h:head>
+        <meta charset="UTF-8" />
+        <title>#{título}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <h:outputStylesheet library="css" name="estilos.css"/>
+    </h:head>
+    <h:body>
+        <h:form prependId="false">
+            <header>
+                <!-- ancla que abre una página de JSF. -->
+                <h:link value="Cancelar⁬⁬⁬" outcome="index"/>
+                <h:commandButton type="submit" value="Guardar"
+                                 action="#{ctrlAutoNuevo.guarda()}"/>
+                <h1>#{título}</h1>
+            </header>
+            <h:messages globalOnly="true"/>
+            <p>
+                <h:inputText id="marca" p:placeholder="Marca"
+                             value="#{ctrlAutoNuevo.modelo.marca}"/>
+                <h:message for="marca"/>
+            </p>
+            <p>
+                <h:inputText id="modelo" p:placeholder="Modelo"
+                             value="#{ctrlAutoNuevo.modelo.modelo}"/>
+                <h:message for="modelo"/>
+            </p>
+            <ezcomp:mi-footer></ezcomp:mi-footer>
+        </h:form>
+    </h:body>
+</html>
